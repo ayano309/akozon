@@ -31,6 +31,9 @@ gem 'jquery-rails'
 # 環境変数を使用できる
 gem 'dotenv-rails'
 
+ # socialiizatioinを使用できる
+  gem 'socialization'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
