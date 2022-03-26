@@ -26,7 +26,7 @@ class Product < ApplicationRecord
       "出品の古い順" => "updated_at asc", 
       "出品の新しい順" => "updated_at desc"
     }
-  }
+  
 
 
   def reviews_new
