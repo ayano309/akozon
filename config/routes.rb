@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  
-  get 'shopping_carts/index'
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -18,6 +16,7 @@ Rails.application.routes.draw do
   end
   resource :users, only: [:edit, :update] do
     collection do
+      get "cart", :to => "shopping_carts#index"
       get "mypage", :to => "users#mypage"
       get "mypage/edit", :to => "users#edit"
       get "mypage/address/edit", :to => "users#edit_address"
