@@ -34,6 +34,11 @@ gem 'dotenv-rails'
  # socialiizatioinを使用できる
   gem 'socialization'
 
+# ページネーションを実装できる
+  gem 'kaminari'
+
+# それらしい値を自動生成できる
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
