@@ -28,6 +28,9 @@ gem 'devise'
 gem 'bootstrap', '~> 4.6.0'
 gem 'jquery-rails'
 
+# 環境変数を使用できる
+gem 'dotenv-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
