@@ -72,7 +72,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   Rails.application.configure do
-  default url
+    #default url
     config.action_mailer.default_url_options = {
       protocol: 'https',
       host: ENV["CLOUD9_APP_ROOT_URL"]
