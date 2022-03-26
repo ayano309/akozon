@@ -21,6 +21,15 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# deviseを使用できる
+gem 'devise'
+
+# bootstrapを使用できる
+gem 'bootstrap', '~> 4.6.0'
+gem 'jquery-rails'
+
+# 環境変数を使用できる
+gem 'dotenv-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
