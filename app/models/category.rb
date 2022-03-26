@@ -8,4 +8,11 @@ class Category < ApplicationRecord
     #     pluck(:major_category_name).uniq
     #   end
 
+    scope :request_category, -> (category) {
+        if category != "none"
+          find(category.to_i)
+        else
+          ""
+        end
+      }
 end
