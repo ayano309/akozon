@@ -43,6 +43,11 @@ class UsersController < ApplicationController
     @user.update(deleted_flg: @user.deleted_flg)
     redirect_to mypage_users_url
   end
+
+  def cart_history_index
+    @orders = ShoppingCart.search_bought_carts_by_user(@user).page(params[:page]).per(15)
+  end
+  
   private
     def set_user
       @user = current_user
