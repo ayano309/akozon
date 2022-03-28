@@ -43,6 +43,8 @@ gem 'dotenv-rails'
 # ショッピングカートを実装できる
   gem 'acts_as_shopping_cart'
 
+# 複数のレコードを一括で登録、更新できる
+  gem 'activerecord-import'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
