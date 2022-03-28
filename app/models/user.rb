@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :reviews
   extend DisplayList
+  extend SwitchFlg
   acts_as_liker
 
   def update_password(params, *options)
