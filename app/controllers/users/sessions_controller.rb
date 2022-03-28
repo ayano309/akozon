@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
-
+  before_action :reject_user, only: [:create]
   # GET /resource/sign_in
   # def new
   #   super
@@ -10,7 +10,15 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    super
+    if self.resource.deleted_flg?
+      set_flash_message!(:danger, :deleted_account)
+      redirect_to root_path and return
+    end
+    set_flash_message!(:notice, :signed_in)
+    sign_in(resource_name, resource)
+    yield resource if block_given?
+    respoond_with resource, location: after_sign_in_path_for(resource)
+
   end
 
   # DELETE /resource/sign_out
@@ -32,5 +40,15 @@ class Users::SessionsController < Devise::SessionsController
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(
       :sign_in, keys: [ :name, :postal_code, :address, :phone, :email, :password, :password_confirmation ])
+  end
+
+  def reject_user
+    @user = User.find_by(email: params[:user][:email].downcase)
+    if @user
+      if @user.deleted_flg?
+        set_flash_message! :notice, :deleted
+        redirect_to new_user_session_path
+      end
+    end
   end
 end
