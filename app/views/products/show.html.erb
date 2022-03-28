@@ -1,7 +1,11 @@
 <div class="d-flex justify-content-center">
   <div class="row w-75">
     <div class="col-5 offset-1">
-      <%= image_tag "dummy.png", class: "w-100 img-fuild" %>
+      <% if @product.image.attached? %>
+        <%= image_tag @product.image, class: "w-100 img-fuild" %>
+      <% else %>
+        <%= image_tag "/images/dummy.png", class: "w-100 img-fuild" %>
+      <% end %>
     </div>
 
     <div class="col">
@@ -57,7 +61,7 @@
       <div class="row">
         <% @reviews.each do |review| %>
         <div class="offset-md-5 col-md-5">
-           <h3 class="review-score-color"><%= score_on_star(review.score) %></h3>
+          <h3 class="review-score-color"><%= score_on_star(review.score) %></h3>
           <p class="h3"><%= review.content %></p>
           <h4><%= review.user.name %></h4>
           <label><%= l review.created_at %></label>
