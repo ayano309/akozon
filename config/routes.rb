@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  get "dashboard", :to => "dashboard#index"
 
   devise_for :admins, :controllers => {
     :sessions => 'admins/sessions'
@@ -12,6 +10,11 @@ Rails.application.routes.draw do
     post "dashboard/login", :to => "admins/sessions#create"
     delete "dashboard/logout", :to => "admins/sessions#destroy"
   end
+
+  namespace :dashboard do
+    resources :categories, except: [:new]
+  end
+
   
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
